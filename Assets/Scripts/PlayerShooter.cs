@@ -25,13 +25,12 @@ public class PlayerShooter : MonoBehaviour
         {
             gun.Fire();
         }
-        else if (playerInput.Reload)
+        else if (playerInput.Reload && gun.Reload())
         {
-            playerAnimator.SetBool(IdReload, playerInput.Reload);
-            gun.Reload();
+            playerAnimator.SetTrigger(IdReload);
         }
     }
-
+    
     private void OnAnimatorIK(int layerIndex)
     {
         gunPivot.position = playerAnimator.GetIKHintPosition(AvatarIKHint.RightElbow);
