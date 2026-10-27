@@ -33,5 +33,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
         IsDead = true;
         OnDead.Invoke();
     }
+
+    public virtual void AddHealth(int add)
+    {
+        Health = Mathf.Clamp(Health + add, 0, startingHealth);
+    }
  
 }

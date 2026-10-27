@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -30,5 +31,17 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 delta = playerInput.Move * transform.forward * moveSpeed * Time.deltaTime;
         playerRigidbody.MovePosition(playerRigidbody.position + delta);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            IItem item = other.GetComponent<IItem>();
+            if (item != null)
+            {
+                item.Use(gameObject);
+            }
+        }
     }
 }

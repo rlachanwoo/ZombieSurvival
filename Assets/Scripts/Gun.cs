@@ -23,7 +23,6 @@ public class Gun : MonoBehaviour
 
     private float fireDistance = 50f;
 
-    private PlayerInput playerInput;
 
     private int ammoRemain;
     private int magAmmo;
@@ -33,7 +32,6 @@ public class Gun : MonoBehaviour
 
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
         bulletLineRenderer =GetComponent<LineRenderer>();
         gunAudioPlayer = GetComponent<AudioSource>();
 
@@ -134,4 +132,11 @@ public class Gun : MonoBehaviour
         
         CurrentState = State.Ready;
     }
+
+    public void AddAmmo(int add)
+    {
+        ammoRemain += add;
+        uiManager.SetAmmoText(magAmmo, ammoRemain);
+    }
+
 }

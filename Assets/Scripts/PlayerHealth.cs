@@ -46,6 +46,11 @@ public class PlayerHealth : LivingEntity
         uiHealth.fillAmount = Health / startingHealth;
     }
 
+    public override void AddHealth(int add)
+    {
+        base.AddHealth(add);
+        uiHealth.fillAmount = Health / startingHealth;
+    }
     public override void Die()
     {
         base.Die();

@@ -104,7 +104,7 @@ public class Zombie : LivingEntity
         CurrentStatus = Status.Idle;
     }
 
-    private void OnDsable()
+    private void OnDisable()
     {
         if (agent.isOnNavMesh)
         {
